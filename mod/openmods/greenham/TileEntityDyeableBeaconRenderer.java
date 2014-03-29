@@ -23,8 +23,8 @@ public class TileEntityDyeableBeaconRenderer extends TileEntitySpecialRenderer {
 		final float rotationTime = beacon.getWorldObj().getTotalWorldTime() + partialTickTime;
 
 		final float f3 = -rotationTime * 0.2F - MathHelper.floor_float(-rotationTime * 0.1F);
-		renderInnerBeam(x, y, z, rotationTime, f1, f3, beacon.color());
-		renderOuterBeam(x, y, z, f1, f3, beacon.color());
+		renderInnerBeam(x, y, z, rotationTime, f1, f3, beacon.getColor());
+		renderOuterBeam(x, y, z, f1, f3, beacon.getColor());
 
 	}
 
@@ -117,7 +117,7 @@ public class TileEntityDyeableBeaconRenderer extends TileEntitySpecialRenderer {
 
 	@Override
 	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float partialTickTime) {
-		this.renderTileEntityBeaconAt((TileEntityDyeableBeacon)te, x, y, z, partialTickTime);
+		renderTileEntityBeaconAt((TileEntityDyeableBeacon)te, x, y, z, partialTickTime);
 	}
 
 }

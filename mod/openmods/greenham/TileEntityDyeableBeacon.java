@@ -11,6 +11,12 @@ public class TileEntityDyeableBeacon extends TileEntityBeacon {
 
 	private int color = DEFAULT_COLOR;
 
+	public TileEntityDyeableBeacon() {}
+
+	public TileEntityDyeableBeacon(int color) {
+		this.color = color;
+	}
+
 	@Override
 	public void readFromNBT(NBTTagCompound tag) {
 		super.readFromNBT(tag);
@@ -28,8 +34,11 @@ public class TileEntityDyeableBeacon extends TileEntityBeacon {
 		return INFINITE_EXTENT_AABB;
 	}
 
-	public int color() {
+	public int getColor() {
 		return color;
 	}
 
+	public void setColor(int color) {
+		this.color = color;
+	}
 }
