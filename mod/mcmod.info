@@ -6,6 +6,7 @@
   "url" : "http://openmods.info",
   "credits" : "",
   "authors": [
+  	"boq"
   ],
   "description": "Dyeable beacon beams",
   "logoFile" : "",

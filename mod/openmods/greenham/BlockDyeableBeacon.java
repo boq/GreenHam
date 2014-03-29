@@ -83,6 +83,7 @@ public class BlockDyeableBeacon extends BlockBeacon {
 	}
 
 	@Override
+	@SideOnly(Side.CLIENT)
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void getSubBlocks(int id, CreativeTabs tab, List result) {
 		for (ColorMeta meta : ColorUtils.getAllColors())
@@ -92,6 +93,7 @@ public class BlockDyeableBeacon extends BlockBeacon {
 	public boolean skipColor;
 
 	@Override
+	@SideOnly(Side.CLIENT)
 	public int colorMultiplier(IBlockAccess world, int x, int y, int z) {
 		if (skipColor) return 0xFFFFFF;
 

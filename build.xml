@@ -114,7 +114,6 @@
 	<target name="copy-source">
 		<copy todir="${mcpsrc.dir}">
 			<fileset dir="mod" />
-			<fileset dir="libs" />
 			<filterset>
 				<filter token="VERSION" value="${mod.version}" />
 			</filterset>
