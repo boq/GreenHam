@@ -7,9 +7,8 @@ import net.minecraft.util.AxisAlignedBB;
 public class TileEntityDyeableBeacon extends TileEntityBeacon {
 
 	private static final String TAG_COLOR = "Color";
-	private static final int DEFAULT_COLOR = 0x00FF00;
 
-	private int color = DEFAULT_COLOR;
+	private Integer color;
 
 	public TileEntityDyeableBeacon() {}
 
@@ -26,7 +25,7 @@ public class TileEntityDyeableBeacon extends TileEntityBeacon {
 	@Override
 	public void writeToNBT(NBTTagCompound tag) {
 		super.writeToNBT(tag);
-		tag.setInteger(TAG_COLOR, color);
+		if (color != null) tag.setInteger(TAG_COLOR, color);
 	}
 
 	@Override
@@ -35,6 +34,7 @@ public class TileEntityDyeableBeacon extends TileEntityBeacon {
 	}
 
 	public int getColor() {
+		if (color == null) color = BlockDyeableBeacon.colorFromMeta(getBlockMetadata());
 		return color;
 	}
 

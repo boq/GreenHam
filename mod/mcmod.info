@@ -2,7 +2,7 @@
 {
   "modid" : "GreenHam",
   "name" : "GreenHam",
-  "version" : "0.1",
+  "version" : "@VERSION@",
   "url" : "http://openmods.info",
   "credits" : "",
   "authors": [

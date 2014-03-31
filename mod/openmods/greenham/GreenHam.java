@@ -1,7 +1,10 @@
 package openmods.greenham;
 
+import java.util.Map;
+
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.tileentity.TileEntity;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Mod;
@@ -10,6 +13,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.ReflectionHelper;
 
 @Mod(modid = "GreenHam", name = "Green Ham", version = "@VERSION@")
 @NetworkMod(serverSideRequired = true, clientSideRequired = false)
@@ -48,7 +52,10 @@ public class GreenHam {
 
 		Item.itemsList[beacon.blockID] = new ItemBeacon(beacon.blockID - 256);
 
-		GameRegistry.registerTileEntity(TileEntityDyeableBeacon.class, "DyeableBeacon");
+		Map<String, Class<? extends TileEntity>> nameToClassMap = ReflectionHelper.getPrivateValue(TileEntity.class, null, "nameToClassMap", "field_70326_a");
+		nameToClassMap.remove("Beacon");
+		nameToClassMap.put("DyeableBeacon", TileEntityDyeableBeacon.class); // compat
+		GameRegistry.registerTileEntity(TileEntityDyeableBeacon.class, "Beacon");
 		proxy.preInit();
 	}
 }
