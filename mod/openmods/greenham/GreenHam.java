@@ -50,7 +50,9 @@ public class GreenHam {
 		Block.blocksList[id] = null;
 		beacon = new BlockDyeableBeacon(id);
 
-		Item.itemsList[beacon.blockID] = new ItemBeacon(beacon.blockID - 256);
+		final Item itemBeacon = new ItemBeacon(beacon.blockID - 256);
+		Item.itemsList[beacon.blockID] = itemBeacon;
+		GameRegistry.registerItem(itemBeacon, "beacon_alternative");
 
 		Map<String, Class<? extends TileEntity>> nameToClassMap = ReflectionHelper.getPrivateValue(TileEntity.class, null, "nameToClassMap", "field_70326_a");
 		nameToClassMap.remove("Beacon");

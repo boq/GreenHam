@@ -48,8 +48,8 @@ public class TileEntityDyeableBeacon extends TileEntityBeacon {
 
 	@OnTick
 	@Freeform
+	@LuaCallable
 	@Alias("setBeamColour")
-	@LuaCallable(description = "Set beam color")
 	@Optional.Method(modid = OPEN_PERIPHERAL_CORE_MODID)
 	public void setBeamColor(@Arg(type = LuaType.NUMBER, name = "color", description = "New color (RGB)") int color) {
 		this.color = color;
